@@ -21,5 +21,5 @@ int main() {
     std::string str = st.strTest();
 
     double res = ee.evaluateExpr(str, sta_op, sta_od, calc, os);
-    std::cout << "\nResult: " << res;
+    std::cout << "\nResult: [ " << res << " ]" << std::endl;
 }

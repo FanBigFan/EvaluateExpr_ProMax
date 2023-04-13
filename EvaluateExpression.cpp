@@ -35,7 +35,7 @@ EvaluateExpression::evaluateExpr(std::string &str, std::stack<MyOpNode *> sta_op
             auto *res = new double(((MyOdNode *) tempNode)->val);
 
             sta_od.push(res);
-            os.outputTop(sta_op, sta_od);
+            os.outputStatus(sta_op, sta_od);
         }
 
         if (ch == '+' || ch == '-') {
@@ -70,7 +70,7 @@ EvaluateExpression::evaluateExpr(std::string &str, std::stack<MyOpNode *> sta_op
             }
 
             index++;
-            os.outputTop(sta_op, sta_od);
+            os.outputStatus(sta_op, sta_od);
         }
 
         if (ch == '*' || ch == '/' || ch == '%') {
@@ -105,14 +105,14 @@ EvaluateExpression::evaluateExpr(std::string &str, std::stack<MyOpNode *> sta_op
             }
 
             index++;
-            os.outputTop(sta_op, sta_od);
+            os.outputStatus(sta_op, sta_od);
         }
 
         if (ch == '(') {
             auto *tempNode = new MyOpNode(ch, -1);
             sta_op.push(tempNode);
             index++;
-            os.outputTop(sta_op, sta_od);
+            os.outputStatus(sta_op, sta_od);
         }
 
         if (ch == ')') {
@@ -132,13 +132,9 @@ EvaluateExpression::evaluateExpr(std::string &str, std::stack<MyOpNode *> sta_op
 
             sta_op.pop();
             index++;
-            os.outputTop(sta_op, sta_od);
+            os.outputStatus(sta_op, sta_od);
         }
     }
-
-    std::cout << "------------------------" << std::endl;
-    os.outputStatus(sta_op, sta_od);
-    std::cout << "\n------------------------";
 
     while (!sta_op.empty()) {
         double od2 = *sta_od.top();

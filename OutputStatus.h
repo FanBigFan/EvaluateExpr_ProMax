@@ -7,15 +7,16 @@
 
 #include <stack>
 #include <iostream>
+#include <iomanip>
 
 #include "MyOpNode.h"
 
 class OutputStatus {
 public:
-    void outputStatus(std::stack<MyOpNode *> sta_op, std::stack<double *> sta_od);
+    void outputStatus(const std::stack<MyOpNode *> &sta_op, const std::stack<double *> &sta_od);
 
-    void outputTop(std::stack<MyOpNode *> sta_op, std::stack<double *> sta_od);
-    
+//    void outputTop(std::stack<MyOpNode *> sta_op, std::stack<double *> sta_od);
+
 //    void outputOp(std::stack<MyOpNode *> sta_op, std::stack<double *> sta_od);
 //
 //    void outputOd(std::stack<MyOpNode *> sta_op, std::stack<double *> sta_od);
