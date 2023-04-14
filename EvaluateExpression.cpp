@@ -4,6 +4,19 @@
 
 #include "EvaluateExpression.h"
 
+/**
+ * @brief           对中缀表达式进行求值。
+ *
+ * @name            evaluateExpr
+ *
+ * @param str       该中缀表达式
+ * @param sta_op    操作符栈
+ * @param sta_od    操作数栈
+ * @param calc      实现具体运算的对象
+ * @param os        格式化输出对象
+ *
+ * @return          返回一个最后的运算结果。
+ * */
 double
 EvaluateExpression::evaluateExpr(std::string &str, std::stack<MyOpNode *> sta_op, std::stack<double *> sta_od,
                                  CalculateResult calc, OutputStatus os) {
@@ -152,13 +165,16 @@ EvaluateExpression::evaluateExpr(std::string &str, std::stack<MyOpNode *> sta_op
     return *sta_od.top();
 }
 /**
- * 计算表达式：
- *   利用两个栈，一个操作数栈 sta_od ，一个操作符栈 sta_op 。
- *   对表达式进行扫描，记每个字符为 ch 。
- *   1。 若 ch 为数字 ，即 ch >= '0' && ch <= '9' ，则还需进行对下一个字符进行扫描，记写一个字符为 str.at(tempIndex) ，
+ * 计算表达式：\n
+ *   利用两个栈，一个操作数栈 sta_od ，一个操作符栈 sta_op 。\n
+ *   \n
+ *   先对表达式进行扫描，记每个字符为 ch 。\n
+ *   \n
+ * 1. 若 ch 为数字 ，即 ch >= '0' && ch <= '9' ，则还需进行对下一个字符进行扫描，记写一个字符为 str.at(tempIndex) ，
  *      若下一个字符 str.at(tempIndex) 为数字或者为小数点 ，
  *      即 str.at(tempIndex) >= '0' && str.at(tempIndex) <= '9' || str.at(tempIndex) == '.' ，
  *      则继续对下一个字符进行扫描 ，直到 str.at(tempIndex) 不满足条件 ， 或 tempIndex >= str.length() 为止 。
- *      取出 index 到 tempIndex 的子串，将其转化为数字，并压入 sta_od 中。
- *
+ *      取出 index 到 tempIndex 的子串，将其转化为数字，并压入 sta_od 中。\n
+ *   \n
+ * 2. 若 ch 为操作符，则
  * */
