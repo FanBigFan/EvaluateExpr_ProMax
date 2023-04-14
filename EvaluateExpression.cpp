@@ -9,7 +9,7 @@
  *
  * @name            evaluateExpr
  *
- * @param str       该中缀表达式
+ * @param expr       该中缀表达式
  * @param sta_op    操作符栈
  * @param sta_od    操作数栈
  * @param calc      实现具体运算的对象
@@ -18,27 +18,27 @@
  * @return          返回一个最后的运算结果。
  * */
 double
-EvaluateExpression::evaluateExpr(std::string &str, std::stack<MyOpNode *> sta_op, std::stack<double *> sta_od,
+EvaluateExpression::evaluateExpr(std::string &expr, std::stack<MyOpNode *> sta_op, std::stack<double *> sta_od,
                                  CalculateResult calc, OutputStatus os) {
     int index = 0;
 
-    while (index < str.length()) {
-        char ch = str.at(index);
+    while (index < expr.length()) {
+        char ch = expr.at(index);
 
         if (ch >= '0' && ch <= '9') {
             int tempIndex = index + 1;
 
-            while ((tempIndex < str.length()) &&
-                   (str.at(tempIndex) >= '0' && str.at(tempIndex) <= '9' || str.at(tempIndex) == '.')) {
+            while ((tempIndex < expr.length()) &&
+                   (expr.at(tempIndex) >= '0' && expr.at(tempIndex) <= '9' || expr.at(tempIndex) == '.')) {
                 tempIndex++;
             }
 
             std::string tempStr;
 
-            if (tempIndex >= str.length()) {
-                tempStr = str.substr(index);
+            if (tempIndex >= expr.length()) {
+                tempStr = expr.substr(index);
             } else {
-                tempStr = str.substr(index, tempIndex - index);
+                tempStr = expr.substr(index, tempIndex - index);
             }
 
             index = tempIndex;

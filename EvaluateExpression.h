@@ -16,7 +16,7 @@
 class EvaluateExpression {
 public:
     double
-    evaluateExpr(std::string &str, std::stack<MyOpNode *> sta_op, std::stack<double *> sta_od, CalculateResult calc,
+    evaluateExpr(std::string &expr, std::stack<MyOpNode *> sta_op, std::stack<double *> sta_od, CalculateResult calc,
                  OutputStatus os);
 };
 
