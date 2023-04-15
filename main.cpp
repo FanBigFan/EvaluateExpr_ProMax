@@ -19,6 +19,7 @@ int main() {
     StrTest st;
 
     std::string str = st.strTest();
+    std::cout << "\nExpression: [ " << str << " ]\n" << std::endl;
 
     double res = ee.evaluateExpr(str, sta_op, sta_od, calc, os);
     std::cout << "\nResult: [ " << res << " ]" << std::endl;
